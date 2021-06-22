@@ -18,11 +18,25 @@ class Dequeue():
     # reverse
     # rotate
     # maxlen
+    # get max
+    # get min
+
+    def updateMaxMin(self, val):
+        if len(self.queue) == 0:
+            self.max.append(val)
+            self.min.append(val)
+        else:
+            if val >= self.max[-1]: ## error here when appendLeft
+                self.max.append(val)
+            elif val <= self.min[-1]:
+                self.min.append(val) 
 
     def append(self, val):
+        self.updateMaxMin(val)
         self.queue.append(val)
 
     def appendLeft(self, val):
+        self.updateMaxMin(val)
         self.queue.insert(0, val)
 
     def print(self):
