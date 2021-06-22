@@ -54,13 +54,17 @@ def main():
         
         text = text.split()
 
-
-        if text[0] == 'append':
-            dequeue.append(text[1])
-        elif text[0] == 'appendLeft':
-            dequeue.appendLeft(text[1])
-        elif text[0] == 'print':
+        if text[0] == 'print':
             dequeue.print()
+        else:    
+            number = int(text[1])
+
+            if text[0] == 'append':
+                dequeue.append(number)
+            elif text[0] == 'appendLeft':
+                dequeue.appendLeft(number)
+            elif text[0] == 'print':
+                dequeue.print()
 
 
 if __name__ == '__main__':
