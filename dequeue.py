@@ -5,11 +5,11 @@ class Dequeue():
         self.min = []
 
     # functions to include:
-    # append
-    # appendleft
-    # clear
-    # copy
-    # count
+    # append [yes]
+    # appendleft [yes]
+    # clear [yes]
+    # copy 
+    # count [yes]
     # index
     # insert
     # pop
@@ -18,15 +18,15 @@ class Dequeue():
     # reverse
     # rotate
     # maxlen
-    # get max
-    # get min
+    # get max [yes]
+    # get min [yes]
 
     def updateMaxMin(self, val):
         if len(self.queue) == 0:
             self.max.append(val)
             self.min.append(val)
         else:
-            if val >= self.max[-1]: ## error here when appendLeft
+            if val >= self.max[-1]: 
                 self.max.append(val)
             elif val <= self.min[-1]:
                 self.min.append(val) 
@@ -41,6 +41,20 @@ class Dequeue():
 
     def print(self):
         print(*self.queue)
+    
+    def getMax(self):
+        return self.max[-1]
+
+    def getMin(self):
+        return self.min[-1]
+
+    def clear(self):
+        self.min = []
+        self.max = []
+        self.queue = []
+
+    def length(self):
+        return len(self.queue)
 
 
 def main():
@@ -56,6 +70,10 @@ def main():
 
         if text[0] == 'print':
             dequeue.print()
+        elif text[0] == 'max':
+            print(dequeue.getMax())
+        elif text[0] == 'min':
+            print(dequeue.getMin())
         else:    
             number = int(text[1])
 
